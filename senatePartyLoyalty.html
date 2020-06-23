@@ -1,0 +1,137 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="assets\img\TGIF.png">
+    <title>Senate Party Loyalty</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets\css\styles.css">
+</head>
+<body>
+    <div class="container-fluid" id="app">
+      <header>
+        <img src="assets\img\HomePageTGIF.png" alt="Logo TGIF">
+      </header>
+      <nav class="navbar navbar-expand-sm ">
+          <ul class="navbar nav">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" href="#">Congress 113</a>
+              <ul>
+                <div class="dropdown-menu">
+                <a class="dropdown-item" href="senatorsHome.html">Senate</a>
+                <a class="dropdown-item" href="representativesHome.html">House</a>
+              </div>
+              </ul>
+            </li>            
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" href="#">Attendance</a>
+            <ul>
+              <div class="dropdown-menu">
+              <a class="dropdown-item" href="senateAttendance.html">Senate</a>
+              <a class="dropdown-item" href="representativesAttendance.html">House</a>
+            </div>
+            </ul>
+          </li>
+          <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" href="#">Party Loyalty</a>
+            <ul>
+              <div class="dropdown-menu">
+              <a class="dropdown-item" href="senatePartyLoyalty.html">Senate</a>
+              <a class="dropdown-item" href="representativesPartyLoyalty.html">House</a>
+            </div>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="container">
+        <section>
+          <article>
+            <div class="row">
+              <div class="col-md-6">
+                <h2>Party Loyalty</h2>
+                <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively,<br/>
+                tend to be the most faithful in voting for their party's nominee for office and legislation<br/>
+                that backs their party's agenda.</p>
+              </div>
+              <div class="col-md-6">
+                <h3>Senate At Glance</h3>
+                <div class="table">
+                  <table class="table-bordered" id="">
+                    <thead>
+                      <tr>
+                        <th>Party</th>
+                        <th>Number of reps</th>
+                        <th>% voted with prty</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for ="(value, key) in parties">
+                        <td>{{value.name}}</td>
+                        <td>{{value.members}}</td>
+                        <td>{{value.percentage}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article>
+            <div class="row justify-content-between">
+              <div class="col-md-6">
+                <h3>Least Loyalty (Bottom 10% Loyalty)</h3>
+                <div class="table">
+                  <table class="table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>% Votes Against party</th>
+                        <th>Total Votes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for = "(value, key) in tenMoreLoyalty">
+                        <td><a href="#">{{value.first_name}} {{value.middle_name || " "}} {{value.last_name}}</a></td>
+                        <td>{{value.votes_against_party_pct}}</td>
+                        <td>{{value.total_votes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <h3>Most Loyalty (Top 10% Loyalty)</h3>
+                <div class="table">
+                  <table class="table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>% Votes Against party</th>
+                        <th>Total Votes</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(value,key) in tenLessLoyalty">
+                        <td><a href="#">{{value.first_name}} {{value.middle_name || " "}} {{value.last_name}}</a></td>
+                        <td>{{value.votes_against_party_pct}}</td>
+                        <td>{{value.total_votes}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+     </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="assets/js/senators.js"></script>
+         <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
